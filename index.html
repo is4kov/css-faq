@@ -1,0 +1,1362 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>CSS Q&A Session</title>
+
+		<meta name="description" content="CSS Q&A Session">
+		<meta name="author" content="Yevhen Isakov">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/epam.css" id="theme">
+
+        <link rel="stylesheet" href="css/my.css" />
+
+        <!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/user.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<div class="slides">
+
+				<section id="mainpage" data-state="mainpage" data-transition="slide">
+					<h1>CSS</h1>
+					<br>
+					<h3>Yevhen Isakov</h3>
+					<time datetime="2016-12-14">14 December, 2016</time>
+				</section>
+
+				<section id="agenda" data-state="agenda">
+					<h2>Agenda</h2>
+					<ul>
+						<li class="fragment">About me</li>
+						<li class="fragment">Browser compatibility</li>
+						<li class="fragment">Positioning</li>
+						<li class="fragment">Z-index</li>
+						<li class="fragment">Organizing CSS Code</li>
+						<li class="fragment">CSS Preprocessors</li>
+						<li class="fragment">CSS Selectors</li>
+						<li class="fragment">Sprites</li>
+						<li class="fragment">Responsive Web Design</li>
+						<li class="fragment">CSS3 Features</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>About me</h2>
+					<ul>
+						<li class="fragment">
+							<div>HTML & CSS as a hobby &mdash; since 2002</div>
+						</li>
+						<li class="fragment">
+							<div>HTML Coder / UI Developer / UX Architect / UI Team Lead &mdash; 9 years in sum</div>
+						</li>
+						<li class="fragment">
+							<div>2+ years in EPAM</div>
+						</li>
+						<li class="fragment">
+							<div>Attended 20+ lectures on frontend topic in EPAM</div>
+						</li>
+						<li class="fragment">
+							<div><a href="http://wsd.events" target="_blank">WSD</a> speaker in 2014</div>
+						</li>
+					</ul>
+				</section>
+
+				<section id="compatibility" data-state="compatibility">
+					<h2>Browser Compatibility</h2>
+					<blockquote class="question">A bit more dive into this. How to deal and where to look for information if in case of facing such issues.</blockquote>
+					<blockquote class="question">Which best practices to work with different browsers you know?</blockquote>
+				</section>
+
+				<section>
+					<h2>Browser Compatibility</h2>
+					<ul>
+						<li class="fragment">At this moment all modern browsers have <strong>ALMOST</strong> the same good compatibility and support actual HTML/CSS standards.</li>
+						<li class="fragment">This problem had lost its importance after old IE (< 10) have [almost] died.</li>
+						<li class="fragment">Current release strategies of modern browsers made integration and support of new standards and features more flexible and easies (flags and so on)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h4><span class="coloured-symbols coloured-symbols_blue">Ex</span>ceptions</h4>
+					<ul>
+						<li class="fragment">Modern standards and specs (in WD, LC or PR status)</li>
+						<li class="fragment">New HTML5 elements and their styling</li>
+					</ul>
+				</section>
+
+				<section>
+					<h4>What to do?</h4>
+					<ul>
+						<li class="fragment">Read specs at <a href="http://www.w3.org">W3</a> and browser vendors bugtrackers</li>
+						<li class="fragment">
+							<div>Check status at <a href="http://caniuse.com" target="_blank">Can I Use</a></div>
+							<div>You can check any CSS rule support through all browsers and look at any related issues.</div>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h4>Tools</h4>
+					<ul>
+						<li class="fragment">Well, browsers. All of you need.</li>
+						<li class="fragment">Debugging tools in browsers (DevTools, Firebug, etc.)</li>
+						<li class="fragment">Virtual machine with <strong>actual</strong> version of IE.</li>
+						<li class="fragment">Online tool for cross-browser testing, e.g. <a href="https://www.browserstack.com" target="_blank">browserstack.com</a>.</li>
+						<li class="fragment">Your own tests via some tools, e.g. <a href="https://gemini-testing.github.io/" target="_blank">Gemini</a>.</li>
+					</ul>
+				</section>
+
+				<section>
+					<div><span class="coloured-symbols coloured-symbols_blue"Progress</span>ive enhancement vs <span class="coloured-symbols coloured-symbols_blue"grace</span>ful degradation</div>
+				</section>
+
+				<section id="positioning" data-state="positioning">
+					<h2>Positioning</h2>
+					<blockquote class="question">More dive into positioning.</blockquote>
+				</section>
+
+				<section>
+					<h3>Document flow</h3>
+					<div class="document-flow">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, quidem.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, quidem.</p>
+						<span>Lorem</span> <span>ipsum</span> <span>dolor</span> <span>sit</span> <span>amet</span> <span>consectetur.</span>
+					</div>
+				</section>
+
+				<section>
+					<h2>Position</h2>
+					<ul style="font-size:.86em">
+						<li class="fragment">
+							<code>static</code>
+							<p>The box is a normal box, laid out according to the normal flow. The 'top', 'right', 'bottom', and 'left' properties <strong>do not</strong> apply.</p>
+						</li>
+						<li class="fragment">
+							<code>relative</code>
+							<p>The box's position is calculated according to the normal flow. Plus, the 'top', 'right', 'bottom', and 'left' properties apply.</p>
+						</li>
+						<li class="fragment">
+							<code>absolute</code>
+							<p>The box is taken out of the normal flow. The box's position (and possibly size) is specified with the 'top', 'right', 'bottom', and 'left' properties.</p>
+						</li>
+						<li class="fragment">
+							<code>fixed</code>
+							<p>According to the 'absolute' model, the box is taken out of the normal flow but does not move when scrolled. The box's position is specified with the 'top', 'right', 'bottom', and 'left' properties.</p>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<div>position: static</div>
+					<div class="document-flow">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, quidem.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, quidem.</p>
+						<span>Lorem</span> <span>ipsum</span> <span>dolor</span> <span>sit</span> <span>amet</span> <span>consectetur.</span>
+					</div>
+				</section>
+
+				<section>
+					<div>position: relative</div>
+					<pre><code>
+span {
+	position: relative;
+	top: 20px;
+	left: 20px;
+	}
+					</code></pre>
+
+					<div class="document-flow relative-example">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, quidem.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, quidem.</p>
+						<span>Lorem</span> <span>ipsum</span> <span class="default">dolor</span> <span class="example">dolor</span> <span>sit</span> <span>amet</span> <span>consectetur.</span>
+					</div>
+
+					<div class="document-flow relative fragment">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, quidem.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, quidem.</p>
+						<span>Lorem</span> <span>ipsum</span> <span class="example">dolor</span> <span>sit</span> <span>amet</span> <span>consectetur.</span>
+					</div>
+				</section>
+
+				<section>
+					<div>position: absolute</div>
+					<pre><code>
+span {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	}
+					</code></pre>
+					<div class="document-flow absolute fragment">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, quidem.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, quidem.</p>
+						<span>Lorem</span> <span>ipsum</span> <span class="example">dolor</span> <span>sit</span> <span>amet</span> <span>consectetur.</span>
+					</div>
+				</section>
+
+				<section>
+					<div>position: fixed</div>
+					<pre><code>
+span {
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	}
+					</code></pre>
+					<div class="document-flow fixed fragment">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, quidem.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, quidem.</p>
+						<span>Lorem</span> <span>ipsum</span> <span class="example">dolor</span> <span>sit</span> <span>amet</span> <span>consectetur.</span>
+					</div>
+				</section>
+
+				<section id="units" data-state="units">
+					<h2><span class="coloured-symbols coloured-symbols_blue">CSS</span> Units</h2>
+					<blockquote class="question">Why are there so many CSS units for expressing length: em, pt, px... Which are useful when?</blockquote>
+				</section>
+
+				<section>
+					<h2>CSS Units</h2>
+				</section>
+
+				<section>
+					<h3>Relative Lengths</h3>
+					<pre><code>
+em	/* relative to the font-size of the parent element */
+ex	/* relative to height of the "x" in lowercase */
+ch	/* relative to width of the "0" */
+rem	/* relative to the font-size of root element */
+
+vw	/* relative to 1% of the width of the viewport */
+vh	/* relative to 1% of the height of the viewport */
+vmin	/* relative to 1% of viewport's* smaller dimension */
+vmax	/* relative to 1% of viewport's* larger dimension */
+
+%	/* relative to the same property of the parent element */
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Absolute Lengths</h3>
+					<pre><code>cm	/* centimeters */
+mm	/* millimeters */
+
+in	/* inches (1in = 96px = 2.54cm) */
+px	/* pixels (1px = 1/96th of 1in) */
+
+pt	/* points (1pt = 1/72 of 1in) */
+pc	/* picas (1pc = 12 pt) */</code></pre>
+				</section>
+
+				<section>
+					<h4>Notes</h4>
+					<ul>
+						<li class="fragment">em and px are most usable units for fonts, rem becoming popular.</li>
+						<li class="fragment">% is the most popular unit for layout due to responsive.</li>
+						<li class="fragment">vw/vh will become popular with new Grid Layout.</li>
+						<li class="fragment">Most of absolute units are used preferably for print page rules.</li>
+					</ul>
+				</section>
+
+				<section>
+					<div><a href="https://pepelsbey.net/pres/clear-and-sharp/#cover" target="_blank">Clear and Sharp</a> (Vadim Makeev)</div>
+				</section>
+
+				<section id="z-index" data-state="z-index">
+					<h2><span class="coloured-symbols coloured-symbols_blue">Z</span>-index</h2>
+					<blockquote class="question">How Z-Index work. Areas of using.</blockquote>
+				</section>
+
+				<section id="z-index-2">
+					<h3>Definition</h3>
+
+					<blockquote>The z-index property specifies the stack order of an element.</blockquote>
+					<div class="blockquote-author">
+						<a href="https://www.w3.org/wiki/CSS/Properties/z-index" target="_blank">W3C Wiki</a>
+					</div>
+				</section>
+				
+				<section>
+					<img src="assets/i/z-index.gif" alt="">
+				</section>
+
+				<section id="z-index-3">
+					<h3>Values</h3>
+					<ul>
+						<li class="fragment">
+							<pre><code>auto</code></pre>
+							<p>The stack level of the generated box in the current stacking context is '0'. The box does not establish a new stacking context unless it is the root element.</p>
+						</li>
+						<li class="fragment">
+							<pre><code>&lt;integer&gt;</code></pre>
+							<p>This integer is the stack level of the generated box in the current stacking context. The box also establishes a new stacking context.</p>
+						</li>
+						<li class="fragment">
+							<pre><code>inherit</code></pre>
+							<p>Takes the same specified value as the property for the element's parent.</p>
+						</li>
+					</ul>
+				</section>
+
+				<section id="z-index-4">
+					<h3>Notes</h3>
+					<ul>
+						<li class="fragment">Element with [positive] z-index always will be above element without it.</li>
+						<li class="fragment">Lower amount of z-index elements is better.</li>
+						<li class="fragment">On the same level the last elements will be the highest one.</li>
+						<li class="fragment">In most cases you actually <strong>do not</strong> need z-index.</li>
+					</ul>
+				</section>
+
+
+				<section id="preprocessors" data-state="preprocessors">
+					<h2>CSS Preprocessors</h2>
+					<blockquote class="question">What is SASS and What is it for?</blockquote>
+				</section>
+
+				<section id="preprocessors-2">
+					<h3>CSS Preprocessors</h3>
+					<ul class="preprocessor">
+						<li class="preprocessor-item preprocessor-item_sass fragment">
+							<div class="preprocessor-item__title">
+								<a href="http://sass-lang.com/" target="_blank">Sass</a>
+							</div>
+						</li>
+						<li class="preprocessor-item preprocessor-item_less fragment">
+							<div class="preprocessor-item__title">
+								<a href="http://lesscss.org" target="_blank">LESS</a>
+							</div>
+						</li>
+						<li class="preprocessor-item preprocessor-item_stylus fragment">
+							<div class="preprocessor-item__title">
+								<a href="http://stylus-lang.com/" target="_blank">Stylus</a>
+							</div>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h4>Which to choose?</h4>
+					<h3 class="preprocessor-which-to-choose fragment"><span class="coloured-symbols coloured-symbols_blue">Any</span> of them!</h3>
+				</section>
+
+				<section>
+					<h4>Syntax</h4>
+					<div>LESS and SCSS</div>
+					<pre><code data-trim>
+body {
+  background-color: #efefef;
+  font-size: 100% Helvetica, sans-serif;
+}
+					</code></pre>
+					<div>SASS</div>
+					<pre><code data-trim>
+body
+  background-color: #efefef
+  font-size: 100% Helvetica, sans-serif
+					</code></pre>
+					<div>Stylus</div>
+					<pre><code data-trim>
+body
+  background-color #efefef
+  font-size 100% Helvetica, sans-serif
+					</code></pre>
+					<p>Stylus supports all 3 variants</p>
+				</section>
+
+				<section>
+					<h3>Functions</h3>
+					<ul>
+						<li class="fragment">Variables</li>
+						<li class="fragment">Nesting selectors</li>
+						<li class="fragment">Imports</li>
+						<li class="fragment">Calculations</li>
+						<li class="fragment">Mixins</li>
+						<li class="fragment">Color functions</li>
+						<li class="fragment">Conditions</li>
+						<li class="fragment">Iterations</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Variables</h3>
+					<h4>SCSS</h4>
+					<pre><code data-trim>
+$button-background: #bada55
+.btn {
+  background: $button-background
+}
+					</code></pre>
+					<h4>LESS</h4>
+					<pre><code data-trim>
+@button-background: #bada55;
+.btn {
+  background: @button-background;
+}
+					</code></pre>
+					<h4>Stylus</h4>
+					<pre><code data-trim>
+$button-background = #bada55
+.btn
+  background $button-background
+					</code></pre>
+				</section>
+
+				<section>
+					<section>
+						<h3>Nesting selectors</h3>
+						<h4>Sass</h4>
+						<pre><code data-trim contenteditable>
+.nav
+  margin: 0
+
+  a
+    color: #00f
+
+    &:hover
+      text-decoration: underline
+
+  &__item
+    padding: 10px
+
+    &:hover
+      color: #fff
+
+  .ie8 &
+    padding: 20px
+						</code></pre>
+					</section>
+					<section>
+						<h4>LESS and SCSS</h4>
+						<pre><code data-trim contenteditable>
+.nav {
+  margin: 0;
+
+  a {
+    color: #00f;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__item {
+    padding: 10px;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  .ie8 & {
+    padding: 20px;
+  }
+}
+						</code></pre>
+					</section>
+					<section>
+						<h4>Stylus</h4>
+						<pre><code data-trim contenteditable>
+.nav
+  margin 0
+
+  a
+    color #00f
+
+    &:hover
+      text-decoration underline
+
+  &__item
+    padding 10px
+
+    &:hover
+      color #fff
+
+  .ie8 &
+    padding 20px
+							</code></pre>
+					</section>
+					<section>
+						<h4>CSS</h4>
+						<pre><code data-trim contenteditable>
+.nav {
+  margin: 0;
+}
+
+.nav a {
+  color: #00f;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+.nav__item {
+  padding: 10px;
+}
+
+.nav_item:hover {
+  color: #fff;
+}
+
+.ie8 .nav {
+  padding: 20px;
+}
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<h3>Imports</h3>
+					<h4>@import</h4>
+				</section>
+
+				<section>
+					<h3>Calculations</h3>
+					<pre><code data-trim contenteditable>
+body {
+  margin: (14px/2);
+  top: 50px + 100px;
+  right: 100px - 50px;
+  left: 10 * 10;
+}
+					</code></pre>
+					<div class="fragment">
+						<p>Will result to</p>
+						<pre><code data-trim contenteditable>
+body {
+  margin: 7px;
+  top: 150px;
+  right: 50px;
+  left: 100px;
+}
+						</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<section>
+						<h3>Mixins</h3>
+						<h4>LESS</h4>
+						<pre><code data-trim contenteditable>
+.transform-scale (@x, @y) {
+  -webkit-transform: scale(@x, @y);
+  transform: scale(@x, @y);
+}
+
+.main {
+  .transform-scale(2, 3);
+}
+						</code></pre>
+					</section>
+					<section>
+						<h4>SASS</h4>
+						<pre><code data-trim contenteditable>
+=transform-scale($x: 2, $y: 2)
+  -webkit-transform: scale($x, $y)
+  transform: scale($x, $y)
+
+.main
+  +transform-scale(2, 3)
+						</code></pre>
+					</section>
+
+					<section>
+						<h4>SCSS</h4>
+						<pre><code data-trim contenteditable>
+@mixin transform-scale ($x: 2, $y: 2){
+  -webkit-transform: scale($x, $y);
+  transform: scale($x, $y);
+}
+
+.main{
+  @include transform-scale(2, 3)
+}
+						</code></pre>
+					</section>
+
+					<section>
+						<h4>Stylus</h4>
+						<pre><code data-trim contenteditable>
+transform-scale (x, y)
+  -webkit-transform scale(x, y)
+  transform scale(x, y)
+
+
+.main
+  transform-scale(2, 3)
+
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Color functions</h3>
+						<h4>Sass</h4>
+						<pre><code data-trim contenteditable>
+rgb($red, $green, $blue)
+hsl($hue, $saturation, $lightness)
+hue($color)
+saturation($color)
+lightness($color)
+adjust-hue($color, $degrees)
+lighten($color, $amount)
+darken($color, $amount)
+saturate($color, $amount)
+desaturate($color, $amount)
+grayscale($color)
+complement($color)
+invert($color)
+...
+							</code></pre>
+						<a href="http://sass-lang.com/documentation/Sass/Script/Functions.html" target="_blank">other functions</a>
+					</section>
+					<section>
+						<h4>LESS</h4>
+						<pre><code data-trim contenteditable>
+rgb(@red, @green, @blue);
+hsl(@hue, @saturation, @lightness);
+hue(@color);
+saturation(@color);
+lightness(@color);
+saturate(@color, @amount);
+desaturate(@color, @amount);
+lighten(@color, @amount);
+darken(@color, @amount);
+fadein(@color, @amount);
+fadeout(@color, @amount);
+spin(@color, @angle);
+mix(@color, @angle);
+grayscale(@color);
+contrast(@color, @dark, @light, threshold);
+...
+						</code></pre>
+						<a href="http://lesscss.org/functions/#color-operations" target="_blank">other functions</a>
+					</section>
+
+					<section>
+						<h4>STYLUS</h4>
+						<pre><code data-trim contenteditable>
+rgba(color, alpha)
+lighten(color, amount)
+darken(color, amount)
+desaturate(color, amount)
+saturate(color, amount)
+invert(color)
+hue(color)
+saturation(color);
+lightness(color);
+...
+						</code></pre>
+						<a href="http://learnboost.github.io/stylus/docs/bifs.html" target="_blank">other functions</a>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Conditions</h3>
+						<h4>Sass</h4>
+						<pre><code data-trim contenteditable>
+@if
+@else if
+@else
+@then
+@for
+@each
+@while
+						</code></pre>
+					</section>
+					<section>
+						<h4>LESS</h4>
+						<pre><code data-trim contenteditable>
+when
+if
+						</code></pre>
+					</section>
+
+					<section>
+						<h4>Stylus</h4>
+						<pre><code data-trim contenteditable>
+if
+else if
+else
+unless
+for
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Iterations</h3>
+						<h4>SCSS</h4>
+						<pre><code data-trim contenteditable>
+@for $i from 1 to 4 {
+  .border-#{$i} {
+    border: #{$i}px solid black;
+  }
+}
+						</code></pre>
+					</section>
+
+					<section>
+						<h4>Stylus</h4>
+						<pre><code data-trim contenteditable>
+for i in (1..4)
+  .border-{i}
+    border (i)px solid black
+						</code></pre>
+					</section>
+					<section>
+						<h4>CSS</h4>
+						<pre><code data-trim contenteditable>
+.border-1 {
+  border: 1px solid black;
+}
+
+.border-2 {
+  border: 2px solid black;
+}
+
+.border-3 {
+  border: 3px solid black;
+}
+
+.border-4 {
+  border: 4px solid black;
+}
+						</code></pre>
+					</section>
+
+					<section>
+						<h4>Sass</h4>
+						<pre><code data-trim contenteditable>
+$emotions: happy sad excited
+
+@each $emotion in $emotions
+  .feeling-#{$emotion}
+    background-image: url("images/feeling-#{$emotion}")
+						</code></pre>
+					</section>
+
+					<section>
+						<h4>CSS</h4>
+						<pre><code data-trim contenteditable>
+.feeling-happy {
+  background-image: url("images/feeling-happy");
+}
+
+.feeling-sad {
+  background-image: url("images/feeling-sad");
+}
+
+.feeling-excited {
+ background-image: url("images/feeling-excited");
+}
+						</code></pre>
+					</section>
+				</section>
+
+				<section id="css-organizing" data-state="css-organizing">
+					<h2>Organizing <span class="coloured-symbols coloured-symbols_blue">CSS</span> Code</h2>
+					<blockquote class="question">Good and bad practices to avoid CSS errors, browsers compatibility, any performance issues, etc.</blockquote>
+					<blockquote class="question">How to organize CSS code so that it would be flexible and scalable. Best practices.</blockquote>
+					<blockquote class="question">How to reuse same CSS for different pages or extend existed?</blockquote>
+					<blockquote class="question">How to isolate changes in the big CSS codebase? When CSS scopes and web component approach could be used?</blockquote>
+					<blockquote class="question">Are there any limitations in CSS?</blockquote>
+				</section>
+
+				<section>
+					<div style="font-style:italic;">Sooner or later...</div>
+				</section>
+
+				<section data-state="wtfcode"></section>
+
+				<section>
+					<h4>How to?</h4>
+				</section>
+
+				<section id="css-organizing-project-css" data-state="css-organizing-project-css"></section>
+
+				<section>
+					<h4>main.scss</h4>
+					<pre><code>
+@import '_variables';
+@import '_mixins';
+@import '_fonts';
+
+@import 'blocks/_common';
+@import 'blocks/_layout';
+
+...
+
+@import '_themes';
+					</code></pre>
+				</section>
+
+				<section>
+					<h4>variables.scss</h4>
+					<pre><code style="font-size:.6em">
+// Fonts
+
+$font-roboto-regular: 'roboto-regular', Tahoma, sans-serif;
+$font-roboto-regularitalic: 'roboto-regularitalic', Tahoma, sans-serif;
+...
+
+// Paths
+
+$image-path: '../../img/';
+
+// Colors
+
+$black: #000;
+$white: #fff;
+...
+
+// Layout
+
+$layout: (
+	header: (
+		background-color: #f5f6f8
+	),
+	left-sidebar: (
+		z-index: 100,
+		width: 150px,
+		background-color: #0a2756
+	),
+	right-sidebar: (
+		z-index: 80,
+		background-color: rgba($black, .2)
+	),
+	grid: (
+		columns-amount: 4
+	)
+);
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Block level variables</h3>
+				</section>
+
+				<section data-state="toast-design"></section>
+
+				<section>
+					<div>toast.scss</div>
+					<pre><code>
+// Toasts
+
+$toast: (
+	close-icon-color: #96a4b8,
+	background-color: #f5f6f8,
+	info: (
+		border-color: #0082ff,
+		color: #00519f
+	),
+	warning: (
+		border-color: #ffb200,
+		color: #b98301
+	),
+	critical: (
+		border-color: #f23e36,
+		color: #800000
+	)
+);
+					</code></pre>
+				</section>
+
+				<section>
+					<h4>toast.scss</h4>
+					<pre><code style="font-size:.5em">
+.toast {
+
+	&-item {
+		position: relative;
+		display: table; // for content alignment
+		box-sizing: border-box;
+		width: 650px;
+		min-height: 60px;
+		margin: 30px auto;
+		padding: 10px 50px 10px 15px;
+		border-left: 3px solid;
+		background: map-get($toast, background-color);
+
+		&__close {
+			position: absolute;
+			top: 50%;
+			right: 17px;
+			transform: translateY(-50%);
+			color: map-get($toast, close-icon-color);
+			}
+
+		&__content {
+			display: inline-block;
+			vertical-align: middle;
+			font-family: $font-roboto-light;
+			}
+
+		&_critical {
+			border-left-color: map-get(map-get($toast, critical), border-color);
+			color: map-get(map-get($toast, critical), color);
+			}
+
+		&_warning {
+			border-left-color: map-get(map-get($toast, warning), border-color);
+			color: map-get(map-get($toast, warning), color);
+			}
+
+		&_info {
+			border-left-color: map-get(map-get($toast, info), border-color);
+			color: map-get(map-get($toast, info), color);
+			}
+		}
+	}
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Organizing CSS Code</h3>
+					<h4>Reusing code</h4>
+				</section>
+
+				<section>
+					<h3>Imagine everything on page is <span class="coloured-symbols coloured-symbols_blue">block</span></h3>
+				</section>
+
+				<section data-state="everything-is-block">
+					<h2>Everything is block</h2>
+				</section>
+
+				<section>
+					<div style="margin-bottom:3em;">There is an answer</div>
+					<h2 class="coloured-symbols coloured-symbols_blue fragment">Methodology</h2>
+				</section>
+
+				<section>
+					<div>Most known and popular of them are</div>
+					<ul class="methodologies-list">
+						<li class="fragment">
+							<h3>BEM</h3>
+							<div><span class="coloured-symbols coloured-symbols_blue">B</span>lock
+								<span class="coloured-symbols coloured-symbols_blue">E</span>lement
+								<span class="coloured-symbols coloured-symbols_blue">M</span>odifier
+							</div>
+						</li>
+						<li class="fragment">
+							<h3>SMACSS</h3>
+							<div><span class="coloured-symbols coloured-symbols_blue">S</span>calable
+								and
+								<span class="coloured-symbols coloured-symbols_blue">M</span>odular
+								<span class="coloured-symbols coloured-symbols_blue">A</span>rchitecture
+								for
+								<span class="coloured-symbols coloured-symbols_blue">CSS</span>
+							</div>
+						</li>
+						<li class="fragment">
+							<h3>OOCSS</h3>
+							<div>
+								<span class="coloured-symbols coloured-symbols_blue">O</span>bject
+								<span class="coloured-symbols coloured-symbols_blue">O</span>riented
+								<span class="coloured-symbols coloured-symbols_blue">CSS</span>
+							</div>
+						</li>
+					</ul>
+				</section>
+
+				<section data-state="toast-design"></section>
+
+				<section>
+					<h3>BEM Example</h3>
+					<pre><code class="xml">
+<div class="toast">
+    <div class="toast-item toast-item_critical">
+        <span class="toast-item__close"></span>
+        <div class="toast-item__content"><% text-critical %></div>
+    </div>
+
+    <div class="toast-item toast-item_warning">
+        <span class="toast-item__close"></span>
+        <div class="toast-item__content"><% text-warning %></div>
+    </div>
+
+    <div class="toast-item toast-item_info">
+        <span class="toast-item__close"></span>
+        <div class="toast-item__content"><% test-info %></div>
+    </div>
+</div>
+					</code></pre>
+				</section>
+
+				<section>
+					<div><a href="https://ru.bem.info/" target="_blank">ru.bem.info</a></div>
+				</section>
+
+				<section>
+					<h3>Organizing <span class="coloured-symbols coloured-symbols_blue">CSS</span> Code</h3>
+					<ul>
+						<li class="fragment">Minify amount of static files on page</li>
+						<li class="fragment">Include CSS files in the &lt;head&gt;, JS &mdash; before &lt;/body&gt;</li>
+						<li class="fragment">Use tags according to their purpose</li>
+						<li class="fragment">Write and keep your code clean</li>
+						<li class="fragment">Divide different source parts to different files</li>
+						<li class="fragment">Use CSS animations instead of JS</li>
+						<li class="fragment">Enable GPU acceleration for animations/transformations</li>
+						<li class="fragment">Use comments</li>
+						<li class="fragment">Use source maps</li>
+						<li class="fragment">Use class selectors</li>
+						<li class="fragment">Use CSS Preprocessor / CSS Postprocessor</li>
+						<li class="fragment">Use methodology</li>
+
+					</ul>
+				</section>
+
+				<section>
+					<h3>You <span class="coloured-symbols coloured-symbols_blue">should</span> avoid</h3>
+					<ul>
+						<li class="fragment">Inline styles</li>
+						<li class="fragment">!important</li>
+						<li class="fragment">ID selectors (and tag selectors, as much as possible)</li>
+						<li class="fragment">Huge selectors or cascades</li>
+						<li class="fragment">Extra elements in markup</li>
+						<li class="fragment">Different units for the same tasks</li>
+						<li class="fragment">Things that aren't clear or obvious</li>
+						<li class="fragment">Transliteration and shortens in class names</li>
+					</ul>
+				</section>
+
+				<section>
+					<div style="margin-bottom:3em">&lt;style <span class="coloured-symbols coloured-symbols_blue">scoped</span>&gt;?</div>
+					<h2 class="fragment">NO.</h2>
+				</section>
+
+				<section>
+					<img src="assets/i/style-scoped.png" alt="" />
+					<div><a href="https://github.com/whatwg/html/issues/552">github.com/whatwg/html/issues/552</a></div>
+				</section>
+
+				<section>
+					<div style="margin-bottom:3em"><span class="coloured-symbols coloured-symbols_blue">Custom</span> Elements?</div>
+					<h2 class="fragment">Yes. <span style="font-size:.25em">in future</span></h2>
+				</section>
+
+				<section>
+					<img src="assets/i/custom-elements-caniuse.png" alt="">
+					<div><a href="http://caniuse.com/#feat=custom-elements" target="_blank">caniuse.com/#feat=custom-elements</a></div>
+				</section>
+
+				<section id="selectors" data-state="selectors">
+					<h2>CSS Selectors</h2>
+					<blockquote class="question">How to determine which css rule will be applied to an element? Are there any rules?</blockquote>
+					<blockquote class="question">Which style for element should works? How to manage this?</blockquote>
+				</section>
+
+				<section id="sprites" data-state="sprites">
+					<h2>Sprites</h2>
+					<blockquote class="question">Do we need to use sprites? Are there any issues using them?</blockquote>
+				</section>
+
+				<section>
+					<h3><span class="coloured-symbols coloured-symbols_blue">Yes</span>, you need</h3>
+					<div>until HTTP/2 will be everywhere</div>
+				</section>
+
+				<section>
+					<h3>Browser Limits</h3>
+					<div class="fragment" style="font-size:.8em">
+						<div>For now all browsers have limit for amount of loading resources from one domain at the same time.</div>
+						<img src="assets/i/max-browser-parallel-connection.png" alt="">
+						<div>2011</div>
+					</div>
+				</section>
+
+				<section>
+					<h3>What is sprite?</h3>
+				</section>
+
+				<section data-state="sprite-example"></section>
+
+				<section data-state="sprite-example-2"></section>
+
+				<section data-state="sprite-youtube"></section>
+
+				<section>
+					<h3>For Example</h3>
+					<img src="assets/i/sprite-social.png" alt="">
+				</section>
+
+				<section>
+					<pre><code>
+<div class="social">
+	<div class="social-icon facebook"></div>
+	<div class="social-icon googleplus"></div>
+	<div class="social-icon twitter"></div>
+</div>
+					</code></pre>
+				</section>
+
+				<section>
+					<pre><code style="font-size:.7em;">
+.social-icon {
+	display: inline-block;
+	width: 84px;
+	height: 84px;
+	vertical-align: top;
+	background-image: url(path/to/images/social-icons-sprite.png);
+	background-repeat: no-repeat;
+	}
+
+.facebook {
+	background-position: 0 0;
+	}
+
+.facebook:hover {
+	background-position: -0 -84px;
+	}
+
+.googleplus {
+	background-position: -84px 0;
+	}
+
+.googleplus:hover {
+	background-position: -84px -84px;
+	}
+
+.twitter {
+	background-position: -164px 0;
+	}
+
+.twitter:hover {
+	background-position: -164px -84px;
+	}
+					</code></pre>
+				</section>
+
+				<section>
+					<div class="social-example">
+						<div class="social-icon facebook"></div
+						><div class="social-icon googleplus"></div
+						><div class="social-icon twitter"></div>
+					</div>
+				</section>
+
+				<section>
+					<h3>Nowadays</h3>
+					<ul>
+						<li class="fragment">Due to retina displays, <strong>SVG</strong> sprites are preferrable</li>
+						<li class="fragment">A lot of tools for automation build process, e.g. <a href="https://github.com/gobwas/gulp-sprite-generator" target="_blank">gulp-sprite-generator</a> for Gulp</li>
+					</ul>
+				</section>
+
+				<section id="rwd" data-state="rwd">
+					<h2>Responsive Web Design</h2>
+					<blockquote class="question">Overview</blockquote>
+					<blockquote class="question">What is a Viewport, which tasks it resolves and what it influences? </blockquote>
+					<blockquote class="question">Frameworks</blockquote>
+				</section>
+
+				<section data-state="rwd-image"></section>
+
+				<section>
+					<h3>Viewport</h3>
+					<div class="fragment">
+						<pre><code>
+<meta name="viewport" content="width=device-width">
+						</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<h3>Fluid grid</h3>
+					<ul>
+						<li class="fragment">All dimension converting to percents</li>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+						<li class="fragment"></li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>@media</h3>
+				</section>
+
+				<section>
+					<h4>Flexible Images</h4>
+					<ul>
+						<li class="fragment">max-width: 100%;</li>
+						<li class="fragment">HTML5 &lt;picture&gt; tag</li>
+						<li class="fragment">Icon fonts (e.g. <a href="fontawesome.io" target="_blank">Font Awesome</a>)</li>
+						<li class="fragment">SVG</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Frameworks</h3>
+					<ul>
+						<li class="fragment">Bootstrap</li>
+						<li class="fragment">Foundation</li>
+					</ul>
+				</section>
+
+				<section id="css3" data-state="css3">
+					<h2>CSS3 Features</h2>
+					<blockquote class="question">Which features of CSS3 made live better? Does the CSS3 support some logic (if, cycles etc)?</blockquote>
+				</section>
+
+				<section>
+					<ul>
+						<li class="fragment">CSS Selectors Module Level 3</li>
+						<li class="fragment">CSS Color Module Level 3</li>
+						<li class="fragment">CSS Backgrounds and Borders Module Level 3</li>
+						<li class="fragment">CSS Transitions Level 1</li>
+						<li class="fragment">CSS Animations Level 1</li>
+						<li class="fragment">CSS Variables Level 1</li>
+						<li class="fragment">CSS Multi-column Layout Level 1</li>
+						<li class="fragment">CSS Flexible Box Module Level 1</li>
+						<li class="fragment">... and so on</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>CSS Selectors</h3>
+					<ul>
+						<li class="fragment">
+							<pre><code>E:empty</code></pre>
+							<div>Element that has no children (including text nodes)</div>
+						</li>
+						<li class="fragment">
+							<pre><code>E:checked</code></pre>
+							<div>user interface element that is checked/selected</div>
+						</li>
+						<li class="fragment">
+							<pre><code>E:not(s)</code></pre>
+							<div>Element that does not match simple selectors</div>
+						</li>
+						<li class="fragment">
+							<pre><code>E:nth-child(n)</code></pre>
+							<div>Element, the n-th child of its parent</div>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>CSS Transforms</h3>
+					<ul>
+						<li class="fragment">Centering element with transform: translateX / translateY</li>
+						<li class="fragment">Rotating element with transform: rotate</li>
+						<li class="fragment">Building 3D with 3D Transforms (even <a href="http://keithclark.co.uk/labs/css-fps/" target="_blank">games</a>)</li>
+						<li class="fragment">...and a lot of other crazy stuff</li>
+					</ul>
+
+					<ul>
+						<li class="fragment">Enable GPU acceleration <strong>every time</strong> you have a transform or animation</li>
+						<li class="fragment">
+							<pre><code>
+transform: translate3d(0, 0, 0);
+							</code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3><span class="coloured-symbols coloured-symbols_blue">Flex</span>box</h3>
+					<div class="fragment"><img src="assets/i/flexbox-caniuse.png" alt=""></div>
+				</section>
+
+				<section>
+					<div><a href="https://pepelsbey.net/pres/flexbox-gotcha/#cover" target="_blank">Flexbox Gotcha</a> (Vadim Makeev)</div>
+				</section>
+
+				<section>
+					<h3>CSS Variables</h3>
+					<pre class="fragment"><code>
+:root {
+	--color: #39c2d7;
+	}
+
+div {
+	background-color: var(--color);
+	}
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>CSS is <span class="coloured-symbols coloured-symbols_blue">awesome</span>!</h2>
+				</section>
+
+                <section id="thank-you" data-state="thank-you">
+                    <h2 class="coloured-symbols coloured-symbols_blue">Thank you</h2>
+	                <div>Questions?</div>
+                </section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: true,
+                slideNumber: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+                transitionSpeed: 'fast',
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+        <script>
+            Reveal.configure({backgroundTransition: 'fade'});
+        </script>
+	</body>
+</html>

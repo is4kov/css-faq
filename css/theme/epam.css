@@ -1,0 +1,390 @@
+/**
+ * Default theme for internal EPAM presentations for reveal.js.
+ *
+ * 2016, Yevhen Isakov, is4kov@gmail.com
+ */
+
+@font-face {
+	font-family: "Oswald Light";
+	src: url("../../assets/fonts/oswald-light-webfont.eot");
+	src: url("../../assets/fonts/oswald-light-webfont.eot?#iefix") format("embedded-opentype"),
+	url("../../assets/fonts/oswald-light-webfont.woff2") format("woff2"),
+	url("../../assets/fonts/oswald-light-webfont.woff") format("woff"),
+	url("../../assets/fonts/oswald-light-webfont.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Oswald Bold";
+	src: url("../../assets/fonts/oswald-bold-webfont.eot");
+	src: url("../../assets/fonts/oswald-bold-webfont.eot?#iefix") format("embedded-opentype"),
+	url("../../assets/fonts/oswald-bold-webfont.woff2") format("woff2"),
+	url("../../assets/fonts/oswald-bold-webfont.woff") format("woff"),
+	url("../../assets/fonts/oswald-bold-webfont.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Oswald Regular";
+	src: url("../../assets/fonts/oswald-regular-webfont.eot");
+	src: url("../../assets/fonts/oswald-regular-webfont.eot?#iefix") format("embedded-opentype"),
+	url("../../assets/fonts/oswald-regular-webfont.woff2") format("woff2"),
+	url("../../assets/fonts/oswald-regular-webfont.woff") format("woff"),
+	url("../../assets/fonts/oswald-regular-webfont.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'PT Sans Narrow';
+	src: url('../../assets/fonts/ptsans-narrow-regular.eot');
+	src: url('../../assets/fonts/ptsans-narrow-regular.eot?#iefix') format('embedded-opentype'),
+	url('../../assets/fonts/ptsans-narrow-regular.woff') format('woff'),
+	url('../../assets/fonts/ptsans-narrow-regular.ttf') format('truetype'),
+	url('../../assets/fonts/ptsans-narrow-regular.svg#pt_sans_narrowregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'PT Sans Narrow';
+	src: url('../../assets/fonts/ptsans-narrow-bold.eot');
+	src: url('../../assets/fonts/ptsans-narrow-bold.eot?#iefix') format('embedded-opentype'),
+	url('../../assets/fonts/ptsans-narrow-bold.woff') format('woff'),
+	url('../../assets/fonts/ptsans-narrow-bold.ttf') format('truetype'),
+	url('../../assets/fonts/ptsans-narrow-bold.svg#pt_sans_narrowbold') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+body {
+	background-color: #fff;
+}
+.reveal {
+	font-family: "PT Sans Narrow", sans-serif;
+	font-size: 36px;
+	font-weight: normal;
+	color: #464547;
+}
+::selection {
+	color: #fff;
+	background: #1a9cb0;
+	text-shadow: none;
+}
+.reveal .slides > section,
+.reveal .slides > section > section {
+	line-height: 1.3;
+	font-weight: inherit;
+}
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+	margin: 0 0 20px 0;
+	color: #464547;
+	font-family: "Oswald Regular", sans-serif;
+	line-height: 0.9;
+	letter-spacing: normal;
+	font-weight: normal;
+	text-transform: uppercase;
+	text-shadow: none;
+	word-wrap: break-word;
+}
+.reveal h1 {
+	font-size: 2.5em;
+	line-height: 1.25;
+}
+.reveal h1::before {
+	content: "<";
+	color: #39c2d7;
+}
+.reveal h1::after {
+	content: ">";
+	color: #39c2d7;
+}
+.reveal h2 {
+	font-size: 2.11em;
+}
+.reveal h3 {
+	font-size: 1.55em;
+	line-height: 1.1em;
+}
+.reveal h4 {
+	font-size: 1em;
+}
+/*********************************************
+ * OTHER
+ *********************************************/
+.reveal p {
+	margin: 20px 0;
+	line-height: 1.3;
+}
+/* Ensure certain elements are never larger than the slide itself */
+.reveal img,
+.reveal video,
+.reveal iframe {
+	max-width: 95%;
+	max-height: 95%;
+}
+.reveal strong,
+.reveal b {
+	font-weight: bold;
+}
+.reveal em {
+	font-style: italic;
+}
+.reveal ol,
+.reveal dl,
+.reveal ul {
+	display: inline-block;
+	text-align: left;
+	margin: 0 0 0 1em;
+}
+.reveal ol {
+	list-style-type: decimal;
+}
+.reveal ul {
+	list-style-type: disc;
+}
+.reveal ul ul {
+	list-style-type: square;
+}
+.reveal ul ul ul {
+	list-style-type: circle;
+}
+.reveal ul ul,
+.reveal ul ol,
+.reveal ol ol,
+.reveal ol ul {
+	display: block;
+	margin-left: 40px;
+}
+.reveal dt {
+	font-weight: bold;
+}
+.reveal dd {
+	margin-left: 40px;
+}
+.reveal q,
+.reveal blockquote {
+	quotes: none;
+}
+.reveal blockquote {
+	display: block;
+	position: relative;
+	width: 100%;
+	margin: 20px auto;
+	padding: 5px;
+	font-style: italic;
+	border: 1px dashed #e0e0e0;
+	background: rgba(255, 255, 255, 0.05);
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+	text-align: left;
+}
+.reveal blockquote p:first-child,
+.reveal blockquote p:last-child {
+	display: inline-block;
+}
+.reveal q {
+	font-style: italic;
+}
+.reveal pre {
+	display: block;
+	position: relative;
+	width: 90%;
+	margin: 20px auto;
+	text-align: left;
+	font-size: 0.55em;
+	font-family: monospace;
+	line-height: 1.2em;
+	word-wrap: break-word;
+	box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+}
+.reveal code {
+	font-family: monospace;
+}
+.reveal pre code {
+	display: block;
+	padding: 5px;
+	overflow: auto;
+	max-height: 9999px;
+	word-wrap: normal;
+}
+.reveal table {
+	margin: auto;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.reveal table th {
+	font-weight: bold;
+}
+.reveal table th,
+.reveal table td {
+	text-align: left;
+	padding: 0.2em 0.5em 0.2em 0.5em;
+	border-bottom: 1px solid;
+}
+.reveal table th[align="center"],
+.reveal table td[align="center"] {
+	text-align: center;
+}
+.reveal table th[align="right"],
+.reveal table td[align="right"] {
+	text-align: right;
+}
+.reveal table tr:last-child td {
+	border-bottom: none;
+}
+.reveal sup {
+	vertical-align: super;
+}
+.reveal sub {
+	vertical-align: sub;
+}
+.reveal small {
+	display: inline-block;
+	font-size: 0.6em;
+	line-height: 1.2em;
+	vertical-align: top;
+}
+.reveal small * {
+	vertical-align: top;
+}
+/*********************************************
+ * LINKS
+ *********************************************/
+.reveal a {
+	color: #39c2d7;
+	text-decoration: none;
+	transition: color .15s ease;
+}
+.reveal a:hover {
+	color: #1a9cb0;
+	text-shadow: none;
+	border: none;
+}
+.reveal .roll span:after {
+	color: #fff;
+	background: #2191a3;
+}
+/*********************************************
+ * IMAGES
+ *********************************************/
+.reveal section img {
+	margin: 15px 0;
+	border: 0 solid #7f993a;
+}
+.reveal section img.plain {
+	border: 0;
+	box-shadow: none;
+}
+.reveal a img {
+	transition: all .15s linear;
+}
+.reveal a:hover img {
+	border-color: #a3c644;
+}
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+	border-right-color: #39c2d7;
+}
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+	border-left-color: #39c2d7;
+}
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+	border-bottom-color: #39c2d7;
+}
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+	border-top-color: #39c2d7;
+}
+.reveal .controls .navigate-left.enabled:hover {
+	border-right-color: #6b89c0;
+}
+.reveal .controls .navigate-right.enabled:hover {
+	border-left-color: #6b89c0;
+}
+.reveal .controls .navigate-up.enabled:hover {
+	border-bottom-color: #6b89c0;
+}
+.reveal .controls .navigate-down.enabled:hover {
+	border-top-color: #6b89c0;
+}
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress {
+	background: rgba(0, 0, 0, 0.2);
+}
+.reveal .progress span {
+	height: 6px;
+	background: #39c2d7;
+	transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+.reveal h2 {
+	margin-bottom: 40px;
+}
+.reveal pre {
+	font-size: .75em;
+	line-height: 1.25;
+}
+.reveal ol,
+.reveal ul {
+	display: block;
+	margin-top: 100px;
+}
+.reveal section img {
+	border: 0;
+}
+.reveal .slide-number {
+	font-size: .5em;
+	color: #464547;
+}
+.reveal .progress span {
+	transition: all linear .5s;
+	background-color: #39c2d7;
+}
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+	letter-spacing: 0.02em;
+}
+code.xml,
+code.css {
+	position: relative;
+}
+code.xml::after,
+code.css::after {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	margin-right: 20px;
+	margin-bottom: 10px;
+	font-size: .75em;
+	color: #1a9cb0;
+}
+code.xml::after {
+	content: "HTML";
+}
+code.css::after {
+	content: "CSS";
+}
+code.less::after {
+	content: "LESS";
+}
