@@ -59,7 +59,7 @@
 						<li class="fragment">About me</li>
 						<li class="fragment">Browser compatibility</li>
 						<li class="fragment">Positioning</li>
-						<li class="fragment">Z-index</li>
+						<li class="fragment">Z-index and floating</li>
 						<li class="fragment">Organizing CSS Code</li>
 						<li class="fragment">CSS Preprocessors</li>
 						<li class="fragment">CSS Selectors</li>
@@ -141,19 +141,19 @@
 
 				<section data-state="positioning">
 					<h2>Positioning</h2>
-					<blockquote class="question">More dive into positioning.</blockquote>
+					<blockquote class="question">More dive into positioning and floating.</blockquote>
 				</section>
 
 				<section>
-					<h3>Document flow</h3>
-					<div class="document-flow">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, quidem.</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, quidem.</p>
-						<span>Lorem</span> <span>ipsum</span> <span>dolor</span> <span>sit</span> <span>amet</span> <span>consectetur.</span>
-					</div>
+					<h3>Document <span class="coloured-symbols coloured-symbols_blue">flow</span></h3>
 				</section>
 
 				<section>
+					<iframe height='500' scrolling='no' title='YpBYWE' src='http://codepen.io/vend3tta/embed/YpBYWE/?height=500&theme-id=dark&default-tab=html,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/vend3tta/pen/YpBYWE/'>YpBYWE</a> by vend3tta (<a href='http://codepen.io/vend3tta'>@vend3tta</a>) on <a href='http://codepen.io'>CodePen</a>.
+					</iframe>
+				</section>
+
+				<!--<section>
 					<h2>Position</h2>
 					<ul style="font-size:.86em">
 						<li class="fragment">
@@ -173,19 +173,19 @@
 							<p>According to the 'absolute' model, the box is taken out of the normal flow but does not move when scrolled. The box's position is specified with the 'top', 'right', 'bottom', and 'left' properties.</p>
 						</li>
 					</ul>
-				</section>
+				</section>-->
 
 				<section>
-					<div>position: static</div>
-					<div class="document-flow">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, quidem.</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, quidem.</p>
-						<span>Lorem</span> <span>ipsum</span> <span>dolor</span> <span>sit</span> <span>amet</span> <span>consectetur.</span>
+					<div class="section-subtitle">position: static</div>
+					<div class="fragment">
+						<div style="text-align: left;">The box is a normal box, laid out according to the normal flow. The 'top', 'right', 'bottom', and 'left' properties <strong>do not</strong> apply.</div>
+						<iframe height='500' scrolling='no' title='bBzLKw' src='http://codepen.io/vend3tta/embed/bBzLKw/?height=500&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/vend3tta/pen/bBzLKw/'>bBzLKw</a> by vend3tta (<a href='http://codepen.io/vend3tta'>@vend3tta</a>) on <a href='http://codepen.io'>CodePen</a>.
+						</iframe>
 					</div>
 				</section>
 
 				<section>
-					<div>position: relative</div>
+					<div class="section-subtitle">position: relative</div>
 					<pre><code>
 span {
 	position: relative;
@@ -193,18 +193,16 @@ span {
 	left: 20px;
 	}
 					</code></pre>
+				</section>
 
-					<div class="document-flow relative-example">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, quidem.</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, quidem.</p>
-						<span>Lorem</span> <span>ipsum</span> <span class="default">dolor</span> <span class="example">dolor</span> <span>sit</span> <span>amet</span> <span>consectetur.</span>
-					</div>
+				<section>
+					<iframe height='500' scrolling='no' title='bBzLmB' src='http://codepen.io/vend3tta/embed/bBzLmB/?height=500&theme-id=0&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/vend3tta/pen/bBzLmB/'>bBzLmB</a> by vend3tta (<a href='http://codepen.io/vend3tta'>@vend3tta</a>) on <a href='http://codepen.io'>CodePen</a>.
+					</iframe>
+				</section>
 
-					<div class="document-flow relative fragment">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, quidem.</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, quidem.</p>
-						<span>Lorem</span> <span>ipsum</span> <span class="example">dolor</span> <span>sit</span> <span>amet</span> <span>consectetur.</span>
-					</div>
+				<section>
+					<iframe height='500' scrolling='no' title='vybdqO' src='http://codepen.io/vend3tta/embed/vybdqO/?height=500&theme-id=0&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/vend3tta/pen/vybdqO/'>vybdqO</a> by vend3tta (<a href='http://codepen.io/vend3tta'>@vend3tta</a>) on <a href='http://codepen.io'>CodePen</a>.
+					</iframe>
 				</section>
 
 				<section>
@@ -216,10 +214,19 @@ span {
 	left: 20px;
 	}
 					</code></pre>
-					<div class="document-flow absolute fragment">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, quidem.</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, quidem.</p>
-						<span>Lorem</span> <span>ipsum</span> <span class="example">dolor</span> <span>sit</span> <span>amet</span> <span>consectetur.</span>
+				</section>
+
+				<section>
+					<iframe height='500' scrolling='no' title='aBXYNr' src='http://codepen.io/vend3tta/embed/aBXYNr/?height=500&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/vend3tta/pen/aBXYNr/'>aBXYNr</a> by vend3tta (<a href='http://codepen.io/vend3tta'>@vend3tta</a>) on <a href='http://codepen.io'>CodePen</a>.
+					</iframe>
+				</section>
+
+				<section>
+					<iframe height='360' scrolling='no' title='pNGLdx' src='http://codepen.io/vend3tta/embed/pNGLdx/?height=360&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/vend3tta/pen/pNGLdx/'>pNGLdx</a> by vend3tta (<a href='http://codepen.io/vend3tta'>@vend3tta</a>) on <a href='http://codepen.io'>CodePen</a>.
+					</iframe>
+					<div class="fragment">
+						<iframe height='360' scrolling='no' title='jVdzYp' src='http://codepen.io/vend3tta/embed/jVdzYp/?height=360&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/vend3tta/pen/jVdzYp/'>jVdzYp</a> by vend3tta (<a href='http://codepen.io/vend3tta'>@vend3tta</a>) on <a href='http://codepen.io'>CodePen</a>.
+						</iframe>
 					</div>
 				</section>
 
@@ -232,11 +239,130 @@ span {
 	left: 20px;
 	}
 					</code></pre>
-					<div class="document-flow fixed fragment">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, quidem.</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, quidem.</p>
-						<span>Lorem</span> <span>ipsum</span> <span class="example">dolor</span> <span>sit</span> <span>amet</span> <span>consectetur.</span>
+				</section>
+
+				<section>
+					<iframe height='500' scrolling='no' title='zoeWWg' src='http://codepen.io/vend3tta/embed/zoeWWg/?height=500&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/vend3tta/pen/zoeWWg/'>zoeWWg</a> by vend3tta (<a href='http://codepen.io/vend3tta'>@vend3tta</a>) on <a href='http://codepen.io'>CodePen</a>.
+					</iframe>
+				</section>
+
+				<section>
+					<iframe height='500' scrolling='no' title='oYmqdx' src='http://codepen.io/vend3tta/embed/oYmqdx/?height=500&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/vend3tta/pen/oYmqdx/'>oYmqdx</a> by vend3tta (<a href='http://codepen.io/vend3tta'>@vend3tta</a>) on <a href='http://codepen.io'>CodePen</a>.
+					</iframe>
+				</section>
+
+				<section>
+					<h2>Floats</h2>
+				</section>
+
+				<section>
+					<iframe height='300' scrolling='no' title='zoejyw' src='http://codepen.io/vend3tta/embed/zoejyw/?height=300&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/vend3tta/pen/zoejyw/'>zoejyw</a> by vend3tta (<a href='http://codepen.io/vend3tta'>@vend3tta</a>) on <a href='http://codepen.io'>CodePen</a>.
+					</iframe>
+				</section>
+
+				<section>
+					<iframe height='300' scrolling='no' title='ENrLMv' src='http://codepen.io/vend3tta/embed/ENrLMv/?height=300&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/vend3tta/pen/ENrLMv/'>ENrLMv</a> by vend3tta (<a href='http://codepen.io/vend3tta'>@vend3tta</a>) on <a href='http://codepen.io'>CodePen</a>.
+					</iframe>
+
+					<div class="fragment">
+						<iframe height='300' scrolling='no' title='MbLXgb' src='http://codepen.io/vend3tta/embed/MbLXgb/?height=300&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/vend3tta/pen/MbLXgb/'>MbLXgb</a> by vend3tta (<a href='http://codepen.io/vend3tta'>@vend3tta</a>) on <a href='http://codepen.io'>CodePen</a>.
+						</iframe>
 					</div>
+				</section>
+
+				<section>
+					<h4>Float?</h4>
+					<h3 class="fragment">Just <span class="coloured-symbols coloured-symbols_blue">clear</span> it</h3>
+				</section>
+
+				<section>
+					<h3>Evolution of <span class="coloured-symbols coloured-symbols_blue">clear</span></h3>
+					<ul>
+						<li class="fragment">&lt;br clear="all" /&gt;</li>
+						<li class="fragment">&lt;div class="clear"&gt;&lt;/div&gt;</li>
+						<li class="fragment">.clear:after { }</li>
+						<li class="fragment">Micro-clearfix hack</li>
+					</ul>
+				</section>
+
+				<section>
+					<div class="section-subtitle">&lt;br clear="all" /&gt;</div>
+					<iframe height='265' scrolling='no' title='PbVaYv' src='http://codepen.io/vend3tta/embed/PbVaYv/?height=265&theme-id=dark&default-tab=html,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/vend3tta/pen/PbVaYv/'>PbVaYv</a> by vend3tta (<a href='http://codepen.io/vend3tta'>@vend3tta</a>) on <a href='http://codepen.io'>CodePen</a>.
+					</iframe>
+					<div class="fragment">
+						<iframe height='265' scrolling='no' title='bBzKNN' src='http://codepen.io/vend3tta/embed/bBzKNN/?height=265&theme-id=dark&default-tab=html,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/vend3tta/pen/bBzKNN/'>bBzKNN</a> by vend3tta (<a href='http://codepen.io/vend3tta'>@vend3tta</a>) on <a href='http://codepen.io'>CodePen</a>.
+						</iframe>
+					</div>
+				</section>
+
+				<section>
+					<div class="section-subtitle">&lt;div class="clear"&gt;&lt;/div&gt;</div>
+					<iframe height='265' scrolling='no' title='ZBwRbK' src='http://codepen.io/vend3tta/embed/ZBwRbK/?height=265&theme-id=dark&default-tab=html,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/vend3tta/pen/ZBwRbK/'>ZBwRbK</a> by vend3tta (<a href='http://codepen.io/vend3tta'>@vend3tta</a>) on <a href='http://codepen.io'>CodePen</a>.
+					</iframe>
+					<div class="fragment">
+						<iframe height='265' scrolling='no' title='rWPKVw' src='http://codepen.io/vend3tta/embed/rWPKVw/?height=265&theme-id=dark&default-tab=html,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/vend3tta/pen/rWPKVw/'>rWPKVw</a> by vend3tta (<a href='http://codepen.io/vend3tta'>@vend3tta</a>) on <a href='http://codepen.io'>CodePen</a>.
+						</iframe>
+					</div>
+				</section>
+
+				<section>
+					<div class="section-subtitle">Micro-clearfix hack</div>
+					<div class="fragment">
+						<pre><code class="css">.clearfix::before,
+.clearfix::after {
+	content: "";
+	display: table;
+	}
+
+.clearfix::after {
+	clear: both;
+	}
+
+.clearfix {
+	zoom: 1;
+	}</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<iframe height='265' scrolling='no' title='ObdEXL' src='http://codepen.io/vend3tta/embed/ObdEXL/?height=265&theme-id=dark&default-tab=html,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/vend3tta/pen/ObdEXL/'>ObdEXL</a> by vend3tta (<a href='http://codepen.io/vend3tta'>@vend3tta</a>) on <a href='http://codepen.io'>CodePen</a>.
+					</iframe>
+					<div class="fragment">
+						<iframe height='265' scrolling='no' title='KNJezg' src='http://codepen.io/vend3tta/embed/KNJezg/?height=265&theme-id=dark&default-tab=css,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/vend3tta/pen/KNJezg/'>KNJezg</a> by vend3tta (<a href='http://codepen.io/vend3tta'>@vend3tta</a>) on <a href='http://codepen.io'>CodePen</a>.
+						</iframe>
+					</div>
+				</section>
+
+				<section>
+					<h2>Context formatting</h2>
+					<div class="fragment">
+						<div>Part of CSS rendering, page region with default positioning blocks within. Elements from different context can not affect each other.</div>
+						<div><a href="https://www.w3.org/TR/CSS21/visuren.html#normal-flow" target="_blank">Visual Formatting Model - W3C</a></div>
+					</div>
+				</section>
+
+				<section>
+					<h4>New context causes to</h4>
+					<ul>
+						<li class="fragment">Floats</li>
+						<li class="fragment">Inline-block elements</li>
+						<li class="fragment">Table-* display</li>
+						<li class="fragment">Overflow <span class="mark">(not visible)</span></li>
+						<li class="fragment">Position <span class="mark">(absolute or fixed)</span></li>
+						<li class="fragment">Flex elements</li>
+					</ul>
+				</section>
+
+				<section>
+					<div class="section-subtitle">oveflow: hidden</div>
+					<iframe height='265' scrolling='no' title='mOvvoJ' src='http://codepen.io/vend3tta/embed/mOvvoJ/?height=265&theme-id=dark&default-tab=css,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/vend3tta/pen/mOvvoJ/'>mOvvoJ</a> by vend3tta (<a href='http://codepen.io/vend3tta'>@vend3tta</a>) on <a href='http://codepen.io'>CodePen</a>.
+					</iframe>
+				</section>
+
+				<section>
+					<div class="section-subtitle">display: table</div>
+					<iframe height='265' scrolling='no' title='WoPPmj' src='http://codepen.io/vend3tta/embed/WoPPmj/?height=265&theme-id=dark&default-tab=css,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/vend3tta/pen/WoPPmj/'>WoPPmj</a> by vend3tta (<a href='http://codepen.io/vend3tta'>@vend3tta</a>) on <a href='http://codepen.io'>CodePen</a>.
+					</iframe>
 				</section>
 
 				<section data-state="units">
@@ -324,11 +450,27 @@ pc	/* picas (1pc = 12 pt) */</code></pre>
 				</section>
 
 				<section>
+					<iframe height='500' scrolling='no' title='LbqdMZ' src='http://codepen.io/vend3tta/embed/LbqdMZ/?height=500&theme-id=dark&default-tab=html,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/vend3tta/pen/LbqdMZ/'>LbqdMZ</a> by vend3tta (<a href='http://codepen.io/vend3tta'>@vend3tta</a>) on <a href='http://codepen.io'>CodePen</a>.
+					</iframe>
+				</section>
+
+				<section>
+					<div class="section-subtitle">position: relative</div>
+					<iframe height='500' scrolling='no' title='jVdzoX' src='http://codepen.io/vend3tta/embed/jVdzoX/?height=500&theme-id=dark&default-tab=css,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/vend3tta/pen/jVdzoX/'>jVdzoX</a> by vend3tta (<a href='http://codepen.io/vend3tta'>@vend3tta</a>) on <a href='http://codepen.io'>CodePen</a>.
+					</iframe>
+				</section>
+
+				<section>
+					<iframe height='500' scrolling='no' title='mOvLyp' src='http://codepen.io/vend3tta/embed/mOvLyp/?height=500&theme-id=dark&default-tab=css,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/vend3tta/pen/mOvLyp/'>mOvLyp</a> by vend3tta (<a href='http://codepen.io/vend3tta'>@vend3tta</a>) on <a href='http://codepen.io'>CodePen</a>.
+					</iframe>
+				</section>
+
+				<section>
 					<h3>Notes</h3>
 					<ul>
 						<li class="fragment">Element with [positive] z-index always will be above element without it.</li>
 						<li class="fragment">Lower amount of z-index elements is better.</li>
-						<li class="fragment">On the same level the last elements will be the highest one.</li>
+						<li class="fragment">On the same level the last element will be the highest one.</li>
 						<li class="fragment">In most cases you actually <strong>do not</strong> need z-index.</li>
 					</ul>
 				</section>
@@ -362,7 +504,7 @@ pc	/* picas (1pc = 12 pt) */</code></pre>
 
 				<section>
 					<h4>Which to choose?</h4>
-					<h3 class="preprocessor-which-to-choose fragment"><span class="coloured-symbols coloured-symbols_blue">Any</span> of them!</h3>
+					<h2 class="preprocessor-which-to-choose fragment"><span class="coloured-symbols coloured-symbols_blue">Any</span> of them</h2>
 				</section>
 
 				<section>
@@ -431,7 +573,7 @@ $button-background = #bada55
 					<section>
 						<h3>Nesting selectors</h3>
 						<h4>Sass</h4>
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim>
 .nav
   margin: 0
 
@@ -453,7 +595,7 @@ $button-background = #bada55
 					</section>
 					<section>
 						<h4>LESS and SCSS</h4>
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim>
 .nav {
   margin: 0;
 
@@ -481,7 +623,7 @@ $button-background = #bada55
 					</section>
 					<section>
 						<h4>Stylus</h4>
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim>
 .nav
   margin 0
 
@@ -503,7 +645,7 @@ $button-background = #bada55
 					</section>
 					<section>
 						<h4>CSS</h4>
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim>
 .nav {
   margin: 0;
 }
@@ -538,7 +680,7 @@ $button-background = #bada55
 
 				<section>
 					<h3>Calculations</h3>
-					<pre><code data-trim contenteditable>
+					<pre><code data-trim>
 body {
   margin: (14px/2);
   top: 50px + 100px;
@@ -548,7 +690,7 @@ body {
 					</code></pre>
 					<div class="fragment">
 						<p>Will result to</p>
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim>
 body {
   margin: 7px;
   top: 150px;
@@ -563,7 +705,7 @@ body {
 					<section>
 						<h3>Mixins</h3>
 						<h4>LESS</h4>
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim>
 .transform-scale (@x, @y) {
   -webkit-transform: scale(@x, @y);
   transform: scale(@x, @y);
@@ -576,7 +718,7 @@ body {
 					</section>
 					<section>
 						<h4>SASS</h4>
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim>
 =transform-scale($x: 2, $y: 2)
   -webkit-transform: scale($x, $y)
   transform: scale($x, $y)
@@ -588,7 +730,7 @@ body {
 
 					<section>
 						<h4>SCSS</h4>
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim>
 @mixin transform-scale ($x: 2, $y: 2){
   -webkit-transform: scale($x, $y);
   transform: scale($x, $y);
@@ -602,7 +744,7 @@ body {
 
 					<section>
 						<h4>Stylus</h4>
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim>
 transform-scale (x, y)
   -webkit-transform scale(x, y)
   transform scale(x, y)
@@ -619,7 +761,7 @@ transform-scale (x, y)
 					<section>
 						<h3>Color functions</h3>
 						<h4>Sass</h4>
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim>
 rgb($red, $green, $blue)
 hsl($hue, $saturation, $lightness)
 hue($color)
@@ -639,7 +781,7 @@ invert($color)
 					</section>
 					<section>
 						<h4>LESS</h4>
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim>
 rgb(@red, @green, @blue);
 hsl(@hue, @saturation, @lightness);
 hue(@color);
@@ -662,7 +804,7 @@ contrast(@color, @dark, @light, threshold);
 
 					<section>
 						<h4>STYLUS</h4>
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim>
 rgba(color, alpha)
 lighten(color, amount)
 darken(color, amount)
@@ -682,7 +824,7 @@ lightness(color);
 					<section>
 						<h3>Conditions</h3>
 						<h4>Sass</h4>
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim>
 @if
 @else if
 @else
@@ -694,7 +836,7 @@ lightness(color);
 					</section>
 					<section>
 						<h4>LESS</h4>
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim>
 when
 if
 						</code></pre>
@@ -702,7 +844,7 @@ if
 
 					<section>
 						<h4>Stylus</h4>
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim>
 if
 else if
 else
@@ -716,7 +858,7 @@ for
 					<section>
 						<h3>Iterations</h3>
 						<h4>SCSS</h4>
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim>
 @for $i from 1 to 4 {
   .border-#{$i} {
     border: #{$i}px solid black;
@@ -727,7 +869,7 @@ for
 
 					<section>
 						<h4>Stylus</h4>
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim>
 for i in (1..4)
   .border-{i}
     border (i)px solid black
@@ -735,7 +877,7 @@ for i in (1..4)
 					</section>
 					<section>
 						<h4>CSS</h4>
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim>
 .border-1 {
   border: 1px solid black;
 }
@@ -756,7 +898,7 @@ for i in (1..4)
 
 					<section>
 						<h4>Sass</h4>
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim>
 $emotions: happy sad excited
 
 @each $emotion in $emotions
@@ -767,7 +909,7 @@ $emotions: happy sad excited
 
 					<section>
 						<h4>CSS</h4>
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim>
 .feeling-happy {
   background-image: url("images/feeling-happy");
 }
@@ -868,7 +1010,7 @@ $layout: (
 				<section data-state="toast-design"></section>
 
 				<section>
-					<div>toast.scss</div>
+					<div class="coloured-symbols coloured-symbols_blue">variables.scss</div>
 					<pre><code>
 // Toasts
 
@@ -892,7 +1034,7 @@ $toast: (
 				</section>
 
 				<section>
-					<h4>toast.scss</h4>
+					<div class="coloured-symbols coloured-symbols_blue">toast.scss</div>
 					<pre><code style="font-size:.5em">
 .toast {
 
@@ -941,8 +1083,8 @@ $toast: (
 				</section>
 
 				<section>
-					<h3>Organizing CSS Code</h3>
-					<h4>Reusing code</h4>
+					<h3>Reusing code</h3>
+					<h4 class="fragment" style="margin-top: 2em;">DRY</h4>
 				</section>
 
 				<section>
@@ -1021,7 +1163,7 @@ $toast: (
 					<h3>Organizing <span class="coloured-symbols coloured-symbols_blue">CSS</span> Code</h3>
 					<ul>
 						<li class="fragment">Minify amount of static files on page</li>
-						<li class="fragment">Include CSS files in the &lt;head&gt;, JS &mdash; before &lt;/body&gt;</li>
+						<li class="fragment">Include CSS files in the &lt;head&gt;; JS &mdash; before &lt;/body&gt;</li>
 						<li class="fragment">Use tags according to their purpose</li>
 						<li class="fragment">Write and keep your code clean</li>
 						<li class="fragment">Divide different source parts to different files</li>
@@ -1106,8 +1248,7 @@ $toast: (
 				<section data-state="sprite-youtube"></section>
 
 				<section>
-					<h3>For Example</h3>
-					<img src="assets/i/sprite-social.png" alt="">
+					<div style="width:252px;height:252px;margin:auto;background:url(assets/i/sprite-social.png)"></div>
 				</section>
 
 				<section>

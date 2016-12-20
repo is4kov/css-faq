@@ -109,6 +109,13 @@
 	top: 20px;
 	}
 
+.section-subtitle {
+	margin-bottom: 2em !important;
+	}
+
+.reveal iframe {
+	margin-top: 1em;
+	}
 
 .reveal .scoped-styles:not(.current-fragment) {
 	text-decoration: line-through;
